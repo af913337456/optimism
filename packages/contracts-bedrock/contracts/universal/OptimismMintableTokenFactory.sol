@@ -41,15 +41,12 @@ contract OptimismMintableTokenFactory {
     /**
      * @notice Address of the StandardBridge on this chain.
      */
-    address public bridge;
+    address public immutable bridge;
 
     /**
-     * @notice Initializer.
-     *
      * @param _bridge Address of the StandardBridge on this chain.
      */
-    function initialize(address _bridge) public {
-        require(bridge == address(0), "OptimismMintableTokenFactory: already initialized");
+    constructor(address _bridge) {
         bridge = _bridge;
     }
 

@@ -16,11 +16,6 @@ contract OptimismMintableTokenFactory_Test is Bridge_Initializer {
         super.setUp();
     }
 
-    function test_initializeShouldRevert() external {
-        vm.expectRevert("OptimismMintableTokenFactory: already initialized");
-        L2TokenFactory.initialize(address(L1Bridge));
-    }
-
     function test_bridge() external {
         assertEq(address(L2TokenFactory.bridge()), address(L2Bridge));
     }
